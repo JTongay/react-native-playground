@@ -1,3 +1,5 @@
+'use strict'
+
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -6,12 +8,15 @@ import {
   View
 } from 'react-native';
 
+
+
 export default class testapp extends Component {
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          This is an app
         </Text>
         <Text style={styles.instructions}>
           To get started, edit index.ios.js

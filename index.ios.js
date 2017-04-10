@@ -7,11 +7,14 @@ import {
 } from 'react-native';
 
 import Layout from './src/pages/layout'
+import ViewContainer from './src/components/ViewContainer'
 
 export default class testapp extends Component {
   render() {
     return (
-      <Layout />
+      <ViewContainer>
+        <Layout />
+      </ViewContainer>
     );
   }
 }
