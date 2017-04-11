@@ -8,12 +8,14 @@ import {
 
 import Layout from './src/pages/layout'
 import ViewContainer from './src/components/ViewContainer'
+import StatusBarBackground from './src/components/StatusBarBackground'
 
 export default class testapp extends Component {
   render() {
     return (
       <ViewContainer>
-        <Layout />
+        <StatusBarBackground />
+        <Text style={ {textAlign: "center"} }>Booyah</Text>
       </ViewContainer>
     );
   }
