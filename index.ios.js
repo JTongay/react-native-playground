@@ -14,7 +14,7 @@ export default class testapp extends Component {
   render() {
     return (
       <ViewContainer>
-        <StatusBarBackground />
+        <StatusBarBackground backgroundColor={"skyblue"} />
         <Text style={ {textAlign: "center"} }>Booyah</Text>
       </ViewContainer>
     );
