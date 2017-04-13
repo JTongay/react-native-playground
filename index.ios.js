@@ -4,8 +4,11 @@ import {
   StyleSheet,
   Text,
   View,
-  ListView
+  ListView,
+  TouchableOpacity
 } from 'react-native';
+import _ from 'lodash'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 import Layout from './src/pages/layout'
 import ViewContainer from './src/components/ViewContainer'
@@ -56,9 +59,11 @@ export default class testapp extends React.Component {
 
   _renderPersonRow(person){
     return (
-      <View style={styles.personRow}>
-        <Text style={styles.personName}>{person.firstName}</Text>
-      </View>
+      <TouchableOpacity style={styles.personRow} onPress={(event)=> console.log(person)}>
+        <Text style={styles.personName}>{`${_.capitalize(person.firstName)} ${_.capitalize(person.lastName)}`}</Text>
+        <View style={{flex: 1}} />
+        <Icon name="chevron-right" style={styles.personMoreIcon} />
+      </TouchableOpacity>
     )
   }
 
@@ -66,10 +71,18 @@ export default class testapp extends React.Component {
 
 const styles = StyleSheet.create({
   personRow: {
-    justifyContent: "center"
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    height: 50
   },
   personName: {
-
+    marginLeft: 25
+  },
+  personMoreIcon: {
+    color: "green",
+    height: 20,
+    width: 20,
+    marginRight: 25
   }
 })
 
