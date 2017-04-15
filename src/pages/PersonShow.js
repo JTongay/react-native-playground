@@ -23,7 +23,7 @@ export default class PersonShowScreen extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <ViewContainer>
+      <ViewContainer style={{backgroundColor: "dodgerblue"}}>
         <StatusBarBackground />
         <Text style={styles.personName}>{`${_.capitalize(this.props.person.firstName)} ${_.capitalize(this.props.person.lastName)}`}</Text>
       </ViewContainer>
@@ -34,18 +34,7 @@ export default class PersonShowScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  personRow: {
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    height: 50
-  },
   personName: {
     marginLeft: 25
   },
-  personMoreIcon: {
-    color: "green",
-    height: 20,
-    width: 20,
-    marginRight: 25
-  }
 })
