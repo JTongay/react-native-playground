@@ -5,6 +5,7 @@ import {
   Text,
   View,
   ListView,
+  Navigator,
   TouchableOpacity
 } from 'react-native';
 import _ from 'lodash'
@@ -42,6 +43,7 @@ export default class PeopleIndexScreen extends React.Component {
   }
 
   render() {
+    console.log(this.props.navigator);
 
     return (
       <ViewContainer>
@@ -58,12 +60,19 @@ export default class PeopleIndexScreen extends React.Component {
 
   _renderPersonRow(person){
     return (
-      <TouchableOpacity style={styles.personRow} onPress={(event)=> console.log(person)}>
+      <TouchableOpacity style={styles.personRow} onPress={(event)=> {return this._navigateToPersonShow(person)}}>
         <Text style={styles.personName}>{`${_.capitalize(person.firstName)} ${_.capitalize(person.lastName)}`}</Text>
         <View style={{flex: 1}} />
         <Icon name="chevron-right" style={styles.personMoreIcon} />
       </TouchableOpacity>
     )
+  }
+
+  _navigateToPersonShow(person){
+    this.props.navigator.push({
+      ident: "PersonShow",
+      person
+    })
   }
 
 }
