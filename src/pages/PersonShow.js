@@ -23,7 +23,7 @@ export default class PersonShowScreen extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <ViewContainer style={{backgroundColor: "dodgerblue"}}>
+      <ViewContainer style={{backgroundColor: "rebeccapurple"}}>
         <StatusBarBackground />
         <Text style={styles.personName}>{`${_.capitalize(this.props.person.firstName)} ${_.capitalize(this.props.person.lastName)}`}</Text>
       </ViewContainer>

@@ -12,7 +12,7 @@ class StatusBarBackground extends React.Component {
 
   render(){
     return (
-      <View style={[styles.statusBarBackground, {backgroundColor: this.props.backgroundColor}]}>
+      <View style={styles.statusBarBackground}>
       </View>
     )
   }
