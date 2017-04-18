@@ -45,7 +45,7 @@ export default class PersonShowScreen extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <ViewContainer style={{backgroundColor: "dodgerblue"}}>
+      <ViewContainer style={{backgroundColor: personBackgroundColor}}>
         <StatusBarBackground />
         <TouchableOpacity onPress={()=> this.props.navigator.pop()}>
           <Icon name="times" size={30} />
