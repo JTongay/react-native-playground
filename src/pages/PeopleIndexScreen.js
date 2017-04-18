@@ -71,7 +71,8 @@ export default class PeopleIndexScreen extends React.Component {
   _navigateToPersonShow(person){
     this.props.navigator.push({
       ident: "PersonShow",
-      person
+      person,
+      // sceneConfig: Navigator.SceneConfigs.FloatFromBottom
     })
   }
 

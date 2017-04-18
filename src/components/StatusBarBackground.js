@@ -9,9 +9,6 @@ import {
 } from 'react-native';
 
 class StatusBarBackground extends React.Component {
-
-  console.log(this.props);
-
   render(){
     return (
       <View style={styles.statusBarBackground}>

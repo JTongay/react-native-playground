@@ -3,51 +3,52 @@ import {
   AppRegistry,
   StyleSheet,
   Navigator,
+  TabBarIOS,
   Text
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-import PeopleIndexScreen from './src/pages/PeopleIndexScreen'
-import PersonShowScreen from './src/pages/PersonShow'
+import AppNavigator from './src/navigation/AppNavigator'
 
-export default class testapp extends React.Component {
+{/*<AppNavigator
+        initialRoute={{ident: "PeopleIndex"}} />*/}
 
-  _renderScene(route, navigator){
-    var globalNavigatorProps = { navigator }
-    switch(route.ident){
-      case "PeopleIndex":
-        return (
-          <PeopleIndexScreen {...globalNavigatorProps} />
-        )
-      case "PersonShow":
-        return (
-          <PersonShowScreen {...globalNavigatorProps} person={route.person} />
-        )
-      default:
-        return (
-          <Text>You Fucked Up!!</Text>
-        )
+export default class testapp extends React.Component{
+
+  constructor(props){
+    super(props)
+    this.state = {
+      selectedTab: "tab1"
     }
   }
 
-  render() {
+  render(){
     return (
-      <Navigator
-        initialRoute={{ident: "PeopleIndex"}}
-        ref = "appNavigator"
-        style = {styles.navigatorStyles}
-        renderScene = {this._renderScene}
-         />
-    );
+      <TabBarIOS 
+        selectedTab={this.state.selectedTab}>
+
+        <TabBarIOS.Item
+          selected={this.state.selectedTab === "tab1"}
+          title={`TAB 1`}
+          onPress={()=> this.setState({selectedTab: "tab1"})}>
+          <AppNavigator initialRoute={{ident: "PeopleIndex"}} />
+        </TabBarIOS.Item>
+
+        <TabBarIOS.Item 
+          selected={this.state.selectedTab === "tab2"}
+          title={`TAB 2`}
+          onPress={()=> this.setState({selectedTab: "tab2"})}>
+          <AppNavigator 
+          initialRoute={{ident: "PersonShow",
+                         person: {firstName: 'Joey', lastName: 'Tongay', age: 27} 
+                         }} />
+        </TabBarIOS.Item>
+      </TabBarIOS>
+    )
   }
+
+
+
 }
-
-const styles = StyleSheet.create({
-
-  navigatorStyles: {
-
-  }
-
-})
 
 AppRegistry.registerComponent('testapp', () => testapp);
